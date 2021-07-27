@@ -54,17 +54,14 @@
 
     <script>
       function random(x, y) {
-        return Math.floor(Math.random() * (x - y) + y + 1);
-      }
-      function randomFloat(x, y) {
         return Math.random() * (x - y) + y;
       }
       setInterval(() => {
         const snow = document.createElement('div');
         let t = 0;
-        let speed = randomFloat(3, 5);
+        let speed = random(3, 5);
         let l = random(0, window.innerWidth + 100);
-        snow.style.setProperty('--size', `${randomFloat(5, 20)}px`);
+        snow.style.setProperty('--size', `${random(5, 20)}px`);
         snow.style.top = `${t}px`;
         snow.style.left = `${l}px`;
         snow.classList.add('snow');
