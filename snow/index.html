@@ -23,6 +23,8 @@
         position: absolute;
         width: var(--size);
         height: var(--size);
+        top: var(--top);
+        left: var(--left);
         border-radius: 50%;
         opacity: 0.7;
         background-color: #bfc8d6;
@@ -62,15 +64,15 @@
         let speed = random(3, 5);
         let l = random(0, window.innerWidth + 100);
         snow.style.setProperty('--size', `${random(5, 20)}px`);
-        snow.style.top = `${t}px`;
-        snow.style.left = `${l}px`;
+        snow.style.setProperty('--top', `${t}px`);
+        snow.style.setProperty('--left', `${l}px`);
         snow.classList.add('snow');
         setInterval(() => {
-          snow.style.top = `${t}px`;
-          snow.style.left = `${l}px`;
           if (t > window.innerHeight || l < 0) {
             snow.remove();
           }
+          snow.style.setProperty('--top', `${t}px`);
+          snow.style.setProperty('--left', `${l}px`);
           l += -0.5;
           t += speed;
         }, 1000 / 60);
